@@ -1,0 +1,31 @@
+@mixin respond($breakpoints){
+    @if $breakpoints == phone{
+        @media (max-width: 37.5em) {
+            @content
+        }
+    }
+    @if $breakpoints == tab-port{
+        @media screen and (max-width: 56.25rem) { //900px
+            @content
+        }
+    }
+    @if $breakpoints == tab-land{
+        @media (max-width: 75em) { //1200px
+            @content
+        }
+    }
+    @if $breakpoints == big-desktop{
+        @media (min-width: 112.5em) { //1800+
+            @content
+        }
+    }
+}
+
+/*Center content vertically*/
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

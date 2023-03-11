@@ -1,0 +1,15 @@
+.hero {
+  background: var(--primary-glow);
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 1rem 1rem 1rem;
+    min-height: 500px;
+
+    @include respond("phone") {
+      flex-direction: column;
+    }
+  }
+}

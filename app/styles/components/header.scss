@@ -1,0 +1,83 @@
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+  top: 0;
+
+  .nav {
+    background-color: #f1f1f1;
+
+    &__container {
+      display: flex;
+      padding: 16px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      color: black;
+    }
+
+    &__menu {
+      &-bar {
+        display: none;
+        flex-direction: column;
+        row-gap: 6px;
+        cursor: pointer;
+
+        div {
+          width: 40px;
+          height: 4px;
+          background-color: black;
+          border-radius: 2px;
+        }
+
+        @include respond("phone") {
+          display: flex;
+        }
+      }
+
+      &-list {
+        display: flex;
+        position: unset;
+        flex-direction: row;
+        min-height: fit-content;
+        width: fit-content;
+        column-gap: 24px;
+        align-items: center;
+        color: black;
+        list-style: none;
+
+        @include respond("phone") {
+          &.active {
+            visibility: visible;
+            height: 250px;
+          }
+
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          visibility: hidden;
+          top: 80px;
+          right: 0;
+          left: 0;
+          width: 100%;
+          padding: 24px 16px;
+          transition: height 0.2s;
+          height: 0;
+          background-color: #f1f1f1;
+        }
+      }
+    }
+
+    &__item {
+      font-size: 18px;
+      position: relative;
+      transition: font-weight 0.2s;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
