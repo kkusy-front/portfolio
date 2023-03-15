@@ -10,9 +10,9 @@ import useOnClickOutside from "@/app/hooks/useOnClickOutside";
 
 const MENU_LIST: { text: string, href: string }[] = [
     { text: "Strona główna", href: "/" },
-    { text: "O mnie", href: "/#about" },
-    { text: "Projekty", href: "/#projects" },
-    { text: "Kontakt", href: "/#kontakt" },
+    { text: "O mnie", href: "#about" },
+    { text: "Projekty", href: "#projects" },
+    { text: "Kontakt", href: "#kontakt" },
 ];
 
 export default function NavBar() {

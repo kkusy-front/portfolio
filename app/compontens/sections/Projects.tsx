@@ -6,7 +6,7 @@ const Projects = () => {
             <section className='projects' id="projects">
                 <div className="container">
                     <div className="projects__container">
-                        <h2>projekty</h2>
+                        <h2 className='section__heading'>projekty</h2>
                     </div>
                 </div>
             </section>

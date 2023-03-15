@@ -1,31 +1,23 @@
 .footer {
-    border-top: 12px solid #E8BE02;
-    background: $color-footer;
-    min-height: 320px;
-    padding: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 10px 0;
 
-    &--boxes{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-        &-box {
+  &__top {
+    display: flex;
+    gap: 15px;
 
-            &-title{
-                color: $color-header-h3;
-                font-size: 20px;
-                font-weight: 900;
-            }
-            &-element{
-                color: $color-header-h4;
-                font-size: 14px;
-                font-weight: 400;
-                margin: 0;
+    margin: 1rem 0;
+  }
 
-                &.join-us{
-                    margin-top: 1rem;
-                }
-            }
-        }
-    }
+  &__bottom {
+    margin-bottom: 1rem;
+  }
 }

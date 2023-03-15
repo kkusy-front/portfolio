@@ -38,13 +38,28 @@
 }
 
 .about {
-  padding: 50px 0;
+  padding: $section-padding;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .projects {
-  padding: 50px 0;
+  padding: $section-padding;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .contact {
-  padding: 50px 0;
+  padding: $section-padding;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
 }
