@@ -1,7 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import Image from 'next/image'
 import Link from "next/link";
 import NavItem from "./NavItem";
+import Logo from '../../assets/img/logo.png'
+
+import useOnClickOutside from "@/app/hooks/useOnClickOutside";
 
 
 const MENU_LIST: { text: string, href: string }[] = [
@@ -12,24 +16,32 @@ const MENU_LIST: { text: string, href: string }[] = [
 ];
 
 export default function NavBar() {
-    const [navActive, setNavActive] = useState(true);
+    const [navActive, setNavActive] = useState(false);
     const [activeIdx, setActiveIdx] = useState(0);
+    const headerRef = useRef<HTMLDivElement>(null);
+
+    const clickOutsidehandler = () => {
+        setNavActive(false)
+    };
+    useOnClickOutside(headerRef, clickOutsidehandler);
+
 
     return (
         <>
-            <header className={'header'}>
+            <header className={'header'} ref={headerRef}>
                 <nav className="nav">
                     <div className="container">
                         <div className="nav__container">
                             <Link href={"/"}>
-                                <h1 className={'nav__logo'}>Kusy-Web</h1>
+                                <Image src={Logo} alt=""
+                                    width={100}
+                                    height={100} />
+                                <h1 className='sr-only'>Kusy-Web</h1>
                             </Link>
                             <div
                                 onClick={() => setNavActive(!navActive)}
-                                className={"nav__menu-bar"}
+                                className={`nav__menu-bar ${navActive ? "active" : ""}`}
                             >
-                                <div></div>
-                                <div></div>
                                 <div></div>
                             </div>
                             <ul className={`nav__menu-list ${navActive ? "active" : ""}`}>

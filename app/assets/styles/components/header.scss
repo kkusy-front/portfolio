@@ -14,10 +14,6 @@
       align-items: center;
     }
 
-    &__logo {
-      color: black;
-    }
-
     &__menu {
       &-bar {
         display: none;
@@ -30,6 +26,38 @@
           height: 4px;
           background-color: black;
           border-radius: 2px;
+          transition: all 0.5s;
+        }
+
+        &::before {
+          content: "";
+          width: 40px;
+          height: 4px;
+          background-color: black;
+          border-radius: 2px;
+          transition: all 0.5s;
+        }
+
+        &::after {
+          content: "";
+          width: 40px;
+          height: 4px;
+          background-color: black;
+          border-radius: 2px;
+          transition: all 0.5s;
+        }
+
+        &.active div {
+          transform: translatex(150px);
+          opacity: 0;
+        }
+
+        &.active::after {
+          transform: rotate(-45deg) translatey(-15px);
+        }
+
+        &.active::before {
+          transform: rotate(45deg) translatey(15px);
         }
 
         @include respond("phone") {
@@ -51,20 +79,20 @@
         @include respond("phone") {
           &.active {
             visibility: visible;
-            height: 250px;
+            opacity: 1;
           }
 
           display: flex;
           flex-direction: column;
           position: absolute;
           visibility: hidden;
-          top: 80px;
+          opacity: 0;
+          top: 120px;
           right: 0;
           left: 0;
           width: 100%;
           padding: 24px 16px;
-          transition: height 0.2s;
-          height: 0;
+          transition: opacity 0.35s ease-in-out;
           background-color: #f1f1f1;
         }
       }
@@ -72,11 +100,17 @@
 
     &__item {
       font-size: 18px;
+      font-weight: bold;
       position: relative;
-      transition: font-weight 0.2s;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.35s ease-in;
 
       &:hover {
-        font-weight: bold;
+        border-color: black;
+      }
+
+      &.active {
+        border-bottom: 2px solid black;
       }
     }
   }

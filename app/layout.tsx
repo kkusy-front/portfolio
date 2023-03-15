@@ -1,4 +1,4 @@
-import './styles/main.scss'
+import './assets/styles/main.scss'
 import 'normalize.css/normalize.css';
 
 export const metadata = {
