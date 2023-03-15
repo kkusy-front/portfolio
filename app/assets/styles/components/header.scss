@@ -99,18 +99,18 @@
     }
 
     &__item {
-      font-size: 18px;
+      font-size: 1.4rem;
       font-weight: bold;
       position: relative;
       border-bottom: 2px solid transparent;
       transition: border-color 0.35s ease-in;
 
       &:hover {
-        border-color: black;
+        border-color: $color-primary;
       }
 
       &.active {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $color-primary;
       }
     }
   }

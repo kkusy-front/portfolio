@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import Image from 'next/image'
 import Link from "next/link";
 import NavItem from "./NavItem";
-import Logo from '../../assets/img/logo.png'
+import Logo from '../../assets/img/logo.webp'
 
 import useOnClickOutside from "@/app/hooks/useOnClickOutside";
 
@@ -35,7 +35,7 @@ export default function NavBar() {
                             <Link href={"/"}>
                                 <Image src={Logo} alt=""
                                     width={100}
-                                    height={100} />
+                                    height={100} priority />
                                 <h1 className='sr-only'>Kusy-Web</h1>
                             </Link>
                             <div

@@ -1,15 +1,50 @@
 .hero {
-  background: #000;
+  background: #111111;
+  padding: 2rem 0;
   &__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 120px 1rem 1rem 1rem;
-    min-height: 500px;
+    gap: 30px;
+    padding: 150px 1rem 1rem 1rem;
+    min-height: 600px;
 
-    @include respond("phone") {
+    @include respond("tab-port") {
       flex-direction: column;
     }
   }
+
+  &__heading {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  &__image {
+    max-width: 600px;
+    width: 100%;
+    height: 500px;
+    position: relative;
+
+    @include respond("phone") {
+      height: 400px;
+    }
+
+    & img {
+      background: $primary-glow;
+      height: 500px;
+    }
+  }
+}
+
+.about {
+  padding: 50px 0;
+}
+
+.projects {
+  padding: 50px 0;
+}
+
+.contact {
+  padding: 50px 0;
 }
