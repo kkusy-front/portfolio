@@ -8,8 +8,8 @@ type Links = {
 
 const NavItem = ({ text, href, active }: Links) => {
     return (
-        <Link href={href} className={`nav__item ${active ? "active" : ""}`}>
-            {text}
+        <Link href={href} legacyBehavior>
+            <a className={`nav__item ${active ? "active" : ""}`} aria-current={active}>{text}</a>
         </Link>
     );
 };

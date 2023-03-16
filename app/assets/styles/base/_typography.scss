@@ -3,13 +3,12 @@
 }
 
 .section__heading {
+  width: fit-content;
   font-size: 3rem;
   text-transform: capitalize;
   border-bottom: 2px solid $color-primary;
   padding: 0px;
   display: inline-block;
-  background-image: linear-gradient(to bottom, #000 45%, $color-primary);
-  color: transparent;
-  background-clip: text;
+  color: #000;
   text-shadow: 5px 8px 4px rgba(179, 147, 211, 0.25);
 }

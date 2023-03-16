@@ -32,11 +32,11 @@ export default function NavBar() {
                 <nav className="nav">
                     <div className="container">
                         <div className="nav__container">
-                            <Link href={"/"}>
+                            <Link href={"/"} className='nav__logo'>
                                 <Image src={Logo} alt=""
                                     width={100}
                                     height={100} priority />
-                                <h1 className='sr-only'>Kusy-Web</h1>
+                                <h1 className='sr-only'>Kusy Web Developer. Stwórz ze mną swoją stronę marzeń</h1>
                             </Link>
                             <div
                                 onClick={() => setNavActive(!navActive)}

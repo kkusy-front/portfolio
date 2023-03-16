@@ -27,12 +27,12 @@
     position: relative;
 
     @include respond("phone") {
-      height: 400px;
+      height: 100%;
+      margin-top: 40px;
     }
 
-    & img {
+    & svg {
       background: $primary-glow;
-      height: 500px;
     }
   }
 }
@@ -61,5 +61,25 @@
   &__container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: row;
+
+    @include respond("tab-port") {
+      flex-direction: column;
+    }
+  }
+
+  &__form {
+    margin: 40px 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $color-primary;
+    border-radius: 10px;
   }
 }
