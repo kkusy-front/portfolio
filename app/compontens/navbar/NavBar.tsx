@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import Image from 'next/image'
 import Link from "next/link";
 import NavItem from "./NavItem";
-import Logo from '../../assets/img/logo.webp'
+import Logo from '../../assets/img/logo-color.svg'
 
 import useOnClickOutside from "@/app/hooks/useOnClickOutside";
 
