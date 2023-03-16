@@ -1,6 +1,5 @@
 "use client";
-import React, { RefObject, useEffect, useRef } from 'react'
-import Image from 'next/image'
+import React, { useEffect, useRef } from 'react'
 
 import HeroImage from '../HeroImage';
 
@@ -10,19 +9,18 @@ export default function Hero() {
     const heroImgRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
-        // console.log(Scene)
         if (heroImgRef.current) {
             const elements = heroImgRef.current.children[0] as any;
             const textsOutOfBox = elements?.getElementById('textsComponent');
             const textsInBox = elements?.getElementById('textsInComponent');
+            const circle = elements?.getElementById('circleCompontent');
 
-            console.log(textsOutOfBox)
-            gsap.set([textsInBox, textsOutOfBox], { autoAlpha: 1 })
-            gsap.fromTo(`#textsComponent path`, { fill: '#F2F2F2' }, { duration: 1.5, fill: '#E6E6E6', ease: 'power3.in', repeat: -1, yoyo: true })
-            gsap.fromTo(`#textsInComponent path`, { fill: "#E6E6E6" }, { duration: 1.5, fill: 'black', ease: 'power3.in', repeat: -1, yoyo: true })
+            console.log(circle)
 
-
-
+            gsap.set([textsInBox, textsOutOfBox, circle], { autoAlpha: 1 })
+            gsap.fromTo(`#textsComponent path`, { fill: '#F2F2F2' }, { duration: 1.5, fill: '#969696', repeat: -1, yoyo: true });
+            gsap.fromTo(`#circleCompontent path`, { fill: '#F2F2F2' }, { duration: 1.5, fill: '#969696', repeat: -1, yoyo: true });
+            gsap.fromTo(`#textsInComponent path`, { fill: "#d3d3d3" }, { duration: 1.5, fill: '#4d4b4b', repeat: -1, yoyo: true });
 
         }
 
@@ -38,7 +36,6 @@ export default function Hero() {
                         </div>
                         <div className="hero__image">
                             <figure ref={heroImgRef}>
-                                {/* <Image src={heroImg} alt="" fill /> */}
                                 <HeroImage />
                             </figure>
                         </div>

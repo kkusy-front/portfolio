@@ -2,7 +2,7 @@ import './assets/styles/main.scss'
 import 'normalize.css/normalize.css';
 
 export const metadata = {
-  title: 'Kusy Developer',
+  title: 'Kusy Developer | Stwórz ze mną swoją stronę marzeń',
   description: 'Stwórz ze mną swoją stronę internetową dla swojego biznesu.',
 }
 
