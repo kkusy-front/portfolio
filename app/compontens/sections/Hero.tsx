@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from 'react'
+import React, { RefObject, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 import HeroImage from '../HeroImage';
@@ -12,17 +12,18 @@ export default function Hero() {
     useEffect(() => {
         // console.log(Scene)
         if (heroImgRef.current) {
-            console.log(heroImgRef.current.children[0])
-            const elements = heroImgRef.current.children[0];
+            const elements = heroImgRef.current.children[0] as any;
+            const textsOutOfBox = elements?.getElementById('textsComponent');
+            const textsInBox = elements?.getElementById('textsInComponent');
 
-            const textsOutOfBox = elements.getElementById('textsComponent');
-            const textsInBox = elements.getElementById('textsInComponent');
+            console.log(textsOutOfBox)
+            gsap.set([textsInBox, textsOutOfBox], { autoAlpha: 1 })
+            gsap.fromTo(`#textsComponent path`, { fill: '#F2F2F2' }, { duration: 1.5, fill: '#E6E6E6', ease: 'power3.in', repeat: -1, yoyo: true })
+            gsap.fromTo(`#textsInComponent path`, { fill: "#E6E6E6" }, { duration: 1.5, fill: 'black', ease: 'power3.in', repeat: -1, yoyo: true })
 
-            gsap.set([textsInBox, textsOutOfBox], { autoAlpha: 0 })
 
-            const tl = gsap.timeline({ defaults: { easy: 'power3.onOut' } });
-            tl.fromTo(textsOutOfBox, { opacity: 0 }, { duration: 1.3, opacity: 1, autoAlpha: 1 })
-            tl.fromTo(textsOutOfBox, { opacity: 1 }, { duration: 1.3, opacity: 0, autoAlpha: 0 })
+
+
         }
 
     }, [])
