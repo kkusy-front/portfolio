@@ -12,7 +12,7 @@ const MENU_LIST: { text: string, href: string }[] = [
     { text: "Strona główna", href: "/" },
     { text: "O mnie", href: "#about" },
     { text: "Projekty", href: "#projects" },
-    { text: "Kontakt", href: "#kontakt" },
+    { text: "Kontakt", href: "#contact" },
 ];
 
 export default function NavBar() {
@@ -24,7 +24,6 @@ export default function NavBar() {
         setNavActive(false)
     };
     useOnClickOutside(headerRef, clickOutsidehandler);
-
 
     return (
         <>

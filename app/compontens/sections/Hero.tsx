@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import HeroImage from '../HeroImage';
 
 import gsap from 'gsap';
+import Link from 'next/link';
 
 export default function Hero() {
     const heroImgRef = useRef<HTMLElement | null>(null);
@@ -30,6 +31,7 @@ export default function Hero() {
                     <div className="hero__container">
                         <div className="hero__heading">
                             <h2>Stwórzmy <span className='color-primary'>razem</span> stronę dla Twojego biznesu.</h2>
+                            <Link href="#contact" className='hero__btn'>Skontaktuj się</Link>
                         </div>
                         <div className="hero__image">
                             <figure ref={heroImgRef}>

@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
+import contactImg from '../../assets/img/contact.svg'
+import Image from 'next/image';
 
 type StatusProp = {
     submitted: boolean,
@@ -22,6 +24,7 @@ const Contact = () => {
     const [inputs, setInputs] = useState({
         email: '',
         message: '',
+        name: '',
     });
 
     const handleServerResponse = (ok: boolean, msg: string) => {
@@ -34,6 +37,7 @@ const Contact = () => {
             setInputs({
                 email: '',
                 message: '',
+                name: ''
             });
         } else {
             setStatus({
@@ -66,7 +70,7 @@ const Contact = () => {
             .then((response) => {
                 handleServerResponse(
                     true,
-                    'Thank you, your message has been submitted.',
+                    'Wiadomość została wysłana. Dziękuje.',
                 );
             })
             .catch((error) => {
@@ -81,41 +85,64 @@ const Contact = () => {
                     <div className="contact__container">
                         <h2 className='section__heading'>Kontakt</h2>
                         <div className="contact__body">
-                            <form onSubmit={handleOnSubmit} className='contact__form'>
-                                <div className="form__group">
-                                    <label htmlFor="email" >Email</label>
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        name="_replyto"
-                                        onChange={handleOnChange}
-                                        required
-                                        value={inputs.email}
-                                    />
-                                </div>
-                                <div className="form__group">
-                                    <label htmlFor="message">Message</label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        onChange={handleOnChange}
-                                        required
-                                        value={inputs.message}
-                                    /></div>
+                            <form onSubmit={handleOnSubmit} >
+                                <fieldset className='form'>
+                                    <div className="form__group">
+                                        <label htmlFor="name" className='form__label'>Imię</label>
+                                        <input
+                                            id="name"
+                                            type="name"
+                                            name="name"
+                                            className='form__input'
+                                            onChange={handleOnChange}
+                                            required
+                                            value={inputs.name}
+                                            placeholder="Twoje Imię"
+                                        />
+                                    </div>
+                                    <div className="form__group">
+                                        <label htmlFor="email" className='form__label'>Email</label>
+                                        <input
+                                            id="email"
+                                            type="email"
+                                            name="_replyto"
+                                            className='form__input'
+                                            onChange={handleOnChange}
+                                            required
+                                            value={inputs.email}
+                                            placeholder="Twój adres Email"
+                                        />
+                                    </div>
+                                    <div className="form__group">
+                                        <label htmlFor="message" className='form__label'>Message</label>
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            className='form__input form__input--area'
+                                            onChange={handleOnChange}
+                                            required
+                                            value={inputs.message}
+                                            placeholder="Twoja wiadomość"
+                                            rows={4}
+                                        />
+                                    </div>
+                                    <div>
+                                        <button type="submit" disabled={status.submitting} className='form__btn'>
+                                            {!status.submitting
+                                                ? !status.submitted
+                                                    ? 'Wyślij'
+                                                    : 'Wysłano'
+                                                : 'Wysyłanie...'}
+                                        </button>
+                                    </div>
 
-                                <button type="submit" disabled={status.submitting}>
-                                    {!status.submitting
-                                        ? !status.submitted
-                                            ? 'Wyślij'
-                                            : 'Wysłano'
-                                        : 'Wysyłanie...'}
-                                </button>
-                                {status.info.error && (
-                                    <p className="status--error">{status.info.msg}</p>
-                                )}
-                                {!status.info.error && status.info.msg && <p className="status--success">{status.info.msg}</p>}
+                                    {status.info.error && (
+                                        <p className="status status--error">{status.info.msg}</p>
+                                    )}
+                                    {!status.info.error && status.info.msg && <p className="status status--success">{status.info.msg}</p>}
+                                </fieldset>
                             </form>
-                            <div>obrazek</div>
+                            <Image src={contactImg} className='form__image' alt='' />
                         </div>
 
                     </div>

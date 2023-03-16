@@ -1,5 +1,6 @@
 import './assets/styles/main.scss'
 import 'normalize.css/normalize.css';
+import HashScroll from './hooks/hash-scroll';
 
 
 export const metadata = {
@@ -16,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body>
-        {children}
+        <HashScroll>{children}</HashScroll>
+
       </body>
     </html>
   )
